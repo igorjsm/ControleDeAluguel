@@ -111,10 +111,13 @@ public class Login extends javax.swing.JFrame {
         String username = textFieldUsername.getText();
         String password = new String(passwordFieldPassword.getPassword());
 
-        if (validateCredentials(username, password)) {
+        User loggedUser = validateCredentials(username, password);
+        if (loggedUser != null) {
             JOptionPane.showMessageDialog(this, "Login bem-sucedido!");
             dispose();
-            ControleDeAluguel controleDeAluguel = new ControleDeAluguel();
+
+            // Passando o usuário logado para a classe ControleDeAluguel
+            ControleDeAluguel controleDeAluguel = new ControleDeAluguel(loggedUser);
             controleDeAluguel.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this, "Nome de usuário ou senha inválidos", "Erro",
@@ -122,13 +125,13 @@ public class Login extends javax.swing.JFrame {
         }
     }
 
-    private boolean validateCredentials(String username, String password) {
+    private User validateCredentials(String username, String password) {
         for (User user : userDAO.getAll()) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                return true;
+                return user;
             }
         }
-        return false;
+        return null;
     }
 
     public static void main(String args[]) {

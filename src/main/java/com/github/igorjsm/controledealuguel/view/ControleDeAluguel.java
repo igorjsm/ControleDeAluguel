@@ -10,6 +10,7 @@ import com.github.igorjsm.controledealuguel.dao.ItemDAO;
 import com.github.igorjsm.controledealuguel.dao.ReservationDAO;
 import com.github.igorjsm.controledealuguel.model.Item;
 import com.github.igorjsm.controledealuguel.model.Reservation;
+import com.github.igorjsm.controledealuguel.model.User;
 
 public class ControleDeAluguel extends JFrame {
     private JTable tableItems;
@@ -18,8 +19,10 @@ public class ControleDeAluguel extends JFrame {
     private DefaultTableModel tableModelReserves;
     private ItemDAO itemDAO;
     private ReservationDAO reservationDAO;
+    private static User currentUser;
 
-    public ControleDeAluguel() {
+    public ControleDeAluguel(User loggedUser) {
+        currentUser = loggedUser;
         itemDAO = new ItemDAO();
         reservationDAO = new ReservationDAO();
         initComponents();
@@ -109,6 +112,12 @@ public class ControleDeAluguel extends JFrame {
         buttonAdministrarUsuarios.addActionListener(evt -> adminUsers());
         getContentPane().add(buttonAdministrarUsuarios,
                 new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 708, 200, 50));
+
+        if (currentUser != null && currentUser.isAdmin()) {
+            buttonAdministrarUsuarios.setVisible(true);
+        } else {
+            buttonAdministrarUsuarios.setVisible(false);
+        }
 
         pack();
     }
@@ -394,6 +403,6 @@ public class ControleDeAluguel extends JFrame {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
-        EventQueue.invokeLater(() -> new ControleDeAluguel().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new ControleDeAluguel(currentUser).setVisible(true));
     }
 }
