@@ -1,0 +1,10 @@
+/home/igor/NetBeansProjects/ControleDeAluguel/src/main/java/com/github/igorjsm/controledealuguel/dao/ReservationDAO.java
+/home/igor/NetBeansProjects/ControleDeAluguel/src/main/java/com/github/igorjsm/controledealuguel/model/Reservation.java
+/home/igor/NetBeansProjects/ControleDeAluguel/src/main/java/com/github/igorjsm/controledealuguel/view/ControleDeAluguel.java
+/home/igor/NetBeansProjects/ControleDeAluguel/src/main/java/com/github/igorjsm/controledealuguel/ControleDeAluguel.java
+/home/igor/NetBeansProjects/ControleDeAluguel/src/main/java/com/github/igorjsm/controledealuguel/dao/ItemDAO.java
+/home/igor/NetBeansProjects/ControleDeAluguel/src/main/java/com/github/igorjsm/controledealuguel/model/Item.java
+/home/igor/NetBeansProjects/ControleDeAluguel/src/main/java/com/github/igorjsm/controledealuguel/dao/UserDAO.java
+/home/igor/NetBeansProjects/ControleDeAluguel/src/main/java/com/github/igorjsm/controledealuguel/model/User.java
+/home/igor/NetBeansProjects/ControleDeAluguel/src/main/java/com/github/igorjsm/controledealuguel/view/Login.java
+/home/igor/NetBeansProjects/ControleDeAluguel/src/main/java/com/github/igorjsm/controledealuguel/dao/SQLiteConnection.java
